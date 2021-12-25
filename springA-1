@@ -1,0 +1,31 @@
+public class User {
+    private String name;
+    private String phone;
+    private Address address;
+    @Autowired
+    private Team team;
+}
+
+
+public class Address {
+    private String addressLine1;
+    private String addressLine2;
+    private String city;
+    private String state;
+    private int pincode;
+}
+
+
+public class Team {
+    private String teamName;
+    private int numberOfMembers;
+    @Autowired
+    private Project project;
+}
+
+
+import java.util.ArrayList;
+
+public class Project {
+    private ArrayList<Project> subProjects;
+}
