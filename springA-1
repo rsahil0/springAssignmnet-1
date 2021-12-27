@@ -1,12 +1,15 @@
+@Component
 public class User {
     private String name;
     private String phone;
+    @Autowired
     private Address address;
     @Autowired
     private Team team;
 }
 
 
+@Component("address")
 public class Address {
     private String addressLine1;
     private String addressLine2;
@@ -16,16 +19,23 @@ public class Address {
 }
 
 
+@Component("team")
+@PropertySource("classpath:team.properties")
 public class Team {
+    @Value("${team-name}")
     private String teamName;
+    @Value("${number-of-members}")
     private int numberOfMembers;
     @Autowired
     private Project project;
 }
 
 
+
+
 import java.util.ArrayList;
 
+@Component("project")
 public class Project {
     private ArrayList<Project> subProjects;
 }
